@@ -18,17 +18,18 @@ Route::get('/', function () {
 //     Route::get('news/create', 'Admin\NewsController@add');
 // });
 
-// ３番
-// Route::get('XXX', 'XXX\AAAController@bbb');
-
-
-// ４番
 
 Route::get('admin/profile/create', 'Admin\ProfileController@add')->middleware('auth');
+Route::post('profile/create', 'Admin\ProfileController@create'); 
+
+
 
 Route::group(['prefix' => 'admin'], function() {
 Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+Route::post('news/create', 'Admin\NewsController@create'); 
 });
+
+
 Route::get('admin/profile/edit', 'Admin\profileController@edit')->middleware('auth');
 
 
